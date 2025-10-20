@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #007AFF;
+    --primary-dark: #0056CC;
+    --secondary: #34C759;
+    --danger: #FF3B30;
+    --warning: #FF9500;
+    --background: #F2F2F7;
+    --card-bg: #FFFFFF;
+    --text: #000000;
+    --text-muted: #8E8E93;
+    --border: #C6C6C8;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --gradient: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.4;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 59, 48, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(255, 149, 0, 0.1) 0%, transparent 25%);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Error Container */
+.error-container {
+    margin-bottom: 40px;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 8px 32px var(--shadow);
+    border: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.error-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FF3B30, #FF9500);
+}
+
+.error-icon {
+    margin-bottom: 30px;
+    color: var(--danger);
+}
+
+.error-code {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--danger);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.error-card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text);
+}
+
+.error-message {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 59, 48, 0.05);
+    border-radius: 15px;
+    border: 2px solid var(--danger);
+}
+
+.error-message p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.error-message p:first-child {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--danger);
+}
+
+.error-message p:last-child {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* Technical Alert */
+.technical-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 149, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid var(--warning);
+    text-align: left;
+}
+
+.alert-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.alert-content strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.alert-content p {
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Solution Section */
+.solution-section {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.solution-section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--text);
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px;
+    background: var(--background);
+    border-radius: 15px;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--shadow);
+    border-color: var(--primary);
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.step-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Contact Info */
+.contact-info {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--text);
+    text-align: center;
+}
+
+.contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--background);
+    border-radius: 12px;
+    border: 2px solid var(--border);
+}
+
+.contact-item strong {
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.discord-btn {
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.discord-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.contact-tag {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.status-badge {
+    background: var(--danger);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Technical Details */
+.technical-details {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.technical-details h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text);
+    text-align: center;
+}
+
+.tech-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.tech-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--background);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.tech-label {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.tech-value {
+    color: var(--danger);
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+/* Migration Notice */
+.migration-notice {
+    padding: 20px;
+    background: rgba(52, 199, 89, 0.1);
+    border-radius: 12px;
+    border: 1px solid var(--secondary);
+    text-align: center;
+}
+
+.migration-notice p {
+    margin: 0;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* Footer Stats */
+.footer {
+    text-align: center;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--danger);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .error-card {
+        padding: 30px 20px;
+    }
+    
+    .error-card h2 {
+        font-size: 1.6rem;
+    }
+    
+    .error-message p:first-child {
+        font-size: 1.1rem;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .tech-item {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 1.1rem;
+    }
+    
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .technical-alert {
+        flex-direction: column;
+        text-align: center;
+    }
+}
